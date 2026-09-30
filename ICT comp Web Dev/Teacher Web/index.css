@@ -1,0 +1,482 @@
+/* =====================================================
+   TEACHERTRACK
+   FINAL CSS
+===================================================== */
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    background-color: #172554;
+    color: white;
+    padding: 22px 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 7px 0 18px;
+    color: #cbd5e1;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a,
+nav button {
+    text-decoration: none;
+    color: white;
+    background-color: #1e3a8a;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav button:hover {
+    background-color: #2563eb;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+main > div {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+main h2 {
+    color: #172554;
+    margin-top: 0;
+}
+
+main h3 {
+    color: #1e3a8a;
+}
+
+
+/* =====================================================
+   DASHBOARD CARDS
+===================================================== */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.card {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 17px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #172554;
+    margin: 10px 0;
+}
+
+
+/* =====================================================
+   PROGRESS BARS
+===================================================== */
+
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-container p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background-color: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #2563eb;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+form {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+form label {
+    display: inline-block;
+    font-weight: bold;
+    color: #334155;
+    margin: 8px 4px 4px;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 5px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+form textarea {
+    min-height: 90px;
+    resize: vertical;
+    width: 95%;
+}
+
+form button {
+    background-color: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+form button:hover {
+    background-color: #1e40af;
+}
+
+
+/* =====================================================
+   TABLES
+===================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+}
+
+th {
+    background-color: #172554;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 11px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tr:hover td {
+    background-color: #f8fafc;
+}
+
+table button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* =====================================================
+   ATTENDANCE
+===================================================== */
+
+#attendanceTable input {
+    width: 70px;
+    text-align: center;
+    padding: 7px;
+    margin: 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status-completed {
+    color: #166534;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #92400e;
+    font-weight: bold;
+}
+
+.status-progress {
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   LOGIN SCREEN
+===================================================== */
+
+#loginScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #172554;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.login-box {
+    background-color: white;
+    width: 380px;
+    max-width: 90%;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.login-box h1 {
+    color: #172554;
+    margin-bottom: 5px;
+}
+
+.login-box p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.login-box form {
+    background-color: white;
+    border: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin-top: 14px;
+}
+
+.login-box input {
+    width: 100%;
+    margin: 6px 0;
+}
+
+.login-box button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+}
+
+#loginMessage {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   ANALYTICS
+===================================================== */
+
+#analytics .card {
+    min-height: 140px;
+}
+
+#analytics .card p {
+    font-size: 34px;
+}
+
+
+/* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+#admin .dashboard-cards {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #admin .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav a,
+    nav button {
+        width: 100%;
+    }
+
+    main {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    main > div {
+        padding: 18px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #admin .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    form input,
+    form select {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    form textarea {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    form label {
+        display: block;
+        margin-left: 0;
+    }
+
+    .login-box {
+        padding: 25px;
+    }
+
+}

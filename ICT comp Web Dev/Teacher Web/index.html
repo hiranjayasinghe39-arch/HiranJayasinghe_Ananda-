@@ -1,0 +1,863 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TeacherTrack</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <h1>TeacherTrack</h1>
+
+        <p>
+            Teacher Performance & Development Tracking System
+        </p>
+
+        <form id="loginForm">
+
+            <label for="loginUsername">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Enter username"
+            >
+
+            <label for="loginPassword">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter password"
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+            <p id="loginMessage"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <h1>TeacherTrack</h1>
+
+    <p>
+        Teacher Performance & Development Tracking System
+    </p>
+
+    <nav>
+
+        <a href="#" onclick="showSection('dashboard'); return false;">
+            Dashboard
+        </a>
+
+        <a href="#" onclick="showSection('teachers'); return false;">
+            Teachers
+        </a>
+
+        <a href="#" onclick="showSection('attendance'); return false;">
+            Attendance
+        </a>
+
+        <a href="#" onclick="showSection('training'); return false;">
+            Training
+        </a>
+
+        <a href="#" onclick="showSection('feedback'); return false;">
+            Feedback
+        </a>
+
+        <a href="#" onclick="showSection('lessons'); return false;">
+            Lesson Plans
+        </a>
+
+        <a href="#" onclick="showSection('analytics'); return false;">
+            Analytics
+        </a>
+
+        <a href="#" onclick="showSection('admin'); return false;">
+            Admin
+        </a>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div id="dashboard">
+
+    <h2>Dashboard</h2>
+
+    <p>
+        Welcome to the TeacherTrack dashboard.
+    </p>
+
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+
+            <h3>Total Teachers</h3>
+
+            <p id="totalTeachers">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Average Performance</h3>
+
+            <p id="averagePerformance">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Training Records</h3>
+
+            <p id="totalTraining">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Lesson Plans</h3>
+
+            <p id="totalLessons">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <h3>Teacher Performance</h3>
+
+
+    <div class="progress-container">
+
+        <p>
+            Mr. Silva
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                id="silvaPerformance"
+                class="progress"
+            >
+            </div>
+
+        </div>
+
+
+        <p>
+            Ms. Perera
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                id="pereraPerformance"
+                class="progress"
+            >
+            </div>
+
+        </div>
+
+
+        <p>
+            Mr. Fernando
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                id="fernandoPerformance"
+                class="progress"
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TEACHERS
+===================================================== -->
+
+<div id="teachers" style="display: none;">
+
+    <h2>Teacher Profiles</h2>
+
+    <p>
+        Add and manage teacher information.
+    </p>
+
+
+    <form id="teacherForm">
+
+        <label for="teacherName">
+            Teacher Name
+        </label>
+
+        <input
+            type="text"
+            id="teacherName"
+            placeholder="Enter teacher name"
+            required
+        >
+
+
+        <label for="teacherSubject">
+            Subject
+        </label>
+
+        <input
+            type="text"
+            id="teacherSubject"
+            placeholder="Enter subject"
+            required
+        >
+
+
+        <label for="teacherEmail">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="teacherEmail"
+            placeholder="Enter email"
+            required
+        >
+
+
+        <label for="teacherExperience">
+            Experience
+        </label>
+
+        <input
+            type="number"
+            id="teacherExperience"
+            placeholder="Years"
+            min="0"
+            required
+        >
+
+
+        <button type="submit">
+            Add Teacher
+        </button>
+
+    </form>
+
+
+    <h3>Teacher List</h3>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>Performance</th>
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="teacherTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =====================================================
+     ATTENDANCE
+===================================================== -->
+
+<div id="attendance" style="display: none;">
+
+    <h2>Attendance & Punctuality</h2>
+
+    <p>
+        Track teacher attendance and punctuality.
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Teacher</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Late</th>
+                <th>Attendance %</th>
+                <th>Save</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="attendanceTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =====================================================
+     TRAINING
+===================================================== -->
+
+<div id="training" style="display: none;">
+
+    <h2>Training & Certifications</h2>
+
+    <p>
+        Track professional development and training.
+    </p>
+
+
+    <form id="trainingForm">
+
+        <label for="trainingTeacher">
+            Teacher
+        </label>
+
+        <select id="trainingTeacher" required>
+
+        </select>
+
+
+        <label for="trainingName">
+            Training / Certification
+        </label>
+
+        <input
+            type="text"
+            id="trainingName"
+            placeholder="Training name"
+            required
+        >
+
+
+        <label for="trainingStatus">
+            Status
+        </label>
+
+        <select id="trainingStatus">
+
+            <option value="Completed">
+                Completed
+            </option>
+
+            <option value="Pending">
+                Pending
+            </option>
+
+            <option value="In Progress">
+                In Progress
+            </option>
+
+        </select>
+
+
+        <label for="trainingDate">
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="trainingDate"
+        >
+
+
+        <button type="submit">
+            Add Training
+        </button>
+
+    </form>
+
+
+    <h3>Training Records</h3>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Teacher</th>
+                <th>Training</th>
+                <th>Status</th>
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="trainingTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =====================================================
+     FEEDBACK
+===================================================== -->
+
+<div id="feedback" style="display: none;">
+
+    <h2>Student Feedback</h2>
+
+    <p>
+        Collect feedback about teacher performance.
+    </p>
+
+
+    <form id="feedbackForm">
+
+        <label for="feedbackTeacher">
+            Teacher
+        </label>
+
+        <select id="feedbackTeacher" required>
+
+        </select>
+
+
+        <label for="feedbackRating">
+            Rating
+        </label>
+
+        <select id="feedbackRating">
+
+            <option value="5">
+                5 - Excellent
+            </option>
+
+            <option value="4">
+                4 - Good
+            </option>
+
+            <option value="3">
+                3 - Average
+            </option>
+
+            <option value="2">
+                2 - Needs Improvement
+            </option>
+
+            <option value="1">
+                1 - Poor
+            </option>
+
+        </select>
+
+
+        <label for="feedbackText">
+            Feedback
+        </label>
+
+        <textarea
+            id="feedbackText"
+            placeholder="Write feedback"
+            required
+        ></textarea>
+
+
+        <label for="feedbackDate">
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="feedbackDate"
+        >
+
+
+        <button type="submit">
+            Add Feedback
+        </button>
+
+    </form>
+
+
+    <h3>Feedback Records</h3>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Teacher</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="feedbackTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =====================================================
+     LESSON PLANS
+===================================================== -->
+
+<div id="lessons" style="display: none;">
+
+    <h2>Lesson Plans</h2>
+
+    <p>
+        Create and track teacher lesson plans.
+    </p>
+
+
+    <form id="lessonForm">
+
+        <label for="lessonTeacher">
+            Teacher
+        </label>
+
+        <select id="lessonTeacher" required>
+
+        </select>
+
+
+        <label for="lessonSubject">
+            Subject
+        </label>
+
+        <input
+            type="text"
+            id="lessonSubject"
+            placeholder="Subject"
+            required
+        >
+
+
+        <label for="lessonName">
+            Lesson
+        </label>
+
+        <input
+            type="text"
+            id="lessonName"
+            placeholder="Lesson name"
+            required
+        >
+
+
+        <label for="lessonDate">
+            Date
+        </label>
+
+        <input
+            type="date"
+            id="lessonDate"
+            required
+        >
+
+
+        <label for="lessonStatus">
+            Status
+        </label>
+
+        <select id="lessonStatus">
+
+            <option value="Planned">
+                Planned
+            </option>
+
+            <option value="In Progress">
+                In Progress
+            </option>
+
+            <option value="Completed">
+                Completed
+            </option>
+
+        </select>
+
+
+        <button type="submit">
+            Add Lesson Plan
+        </button>
+
+    </form>
+
+
+    <h3>Lesson Plan Records</h3>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Teacher</th>
+                <th>Subject</th>
+                <th>Lesson</th>
+                <th>Date</th>
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="lessonTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- =====================================================
+     ANALYTICS
+===================================================== -->
+
+<div id="analytics" style="display: none;">
+
+    <h2>Visual Analytics</h2>
+
+    <p>
+        View simple performance statistics.
+    </p>
+
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+
+            <h3>Attendance</h3>
+
+            <p id="analyticsAttendance">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Average Performance</h3>
+
+            <p id="analyticsPerformance">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Training Completion</h3>
+
+            <p id="analyticsTraining">
+                0%
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN DASHBOARD
+===================================================== -->
+
+<div id="admin" style="display: none;">
+
+    <h2>Admin Dashboard</h2>
+
+    <p>
+        Overview of the TeacherTrack system.
+    </p>
+
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+
+            <h3>Total Teachers</h3>
+
+            <p id="adminTeacherCount">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Attendance</h3>
+
+            <p id="adminAttendance">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Performance</h3>
+
+            <p id="adminPerformance">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Training</h3>
+
+            <p id="adminTraining">
+                0%
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Lesson Plans</h3>
+
+            <p id="adminLessonCount">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Feedback</h3>
+
+            <p id="adminFeedbackCount">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
+```
